@@ -39,4 +39,4 @@ st.text(fruityvice_response.json()) # just writes the date to the screen
 # take the json version of the response and normalize it
 fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
 # output it the screen as a table
-st.dataframe(fruityvice_noramlized)
+st.dataframe(fruityvice_normalized)
