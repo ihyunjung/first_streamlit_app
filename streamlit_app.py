@@ -11,8 +11,16 @@ st.text('🥑🍞 Avocado Toast')
 st.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
 
 import pandas as pd
-my_fruit_list = pd.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
 # st.dataframe(my_fruit_list)
+my_fruit_list = pd.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
+
+# set_index (0,1,2..가 아니라 Fruit열을 인덱스로 만들어줘)
+my_fruit_list = my_fruit_list.set_index('Fruit') 
+# DataFrame.set_index(keys, drop=True, append=False, inplace=False)
+# drop: 인덱스로 세팅한 열을 DataFrame 내에서 삭제할지 여부 결정(option)
+# append: 기존에 존재하던 인덱스 삭제 여부 결정(option)
+# inplace: 원본 객체 변경 여부 결정(option)
+
 
 # Let's put a pick list here so they can pick the fruit they want to include
 st.multiselect("Pick some fruits:", list(my_fruit_list.index))
