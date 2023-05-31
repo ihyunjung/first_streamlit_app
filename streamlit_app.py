@@ -80,7 +80,7 @@ add_my_fruit = st.text_input('What fruit would you like to add?')
 
 if st.button('Get Fruit List'):
   my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
-  st.write(insert_row_snoaflake(add_my_fruit))
+  st.write(insert_row_snowflake(add_my_fruit))
   my_data_rows = get_fruit_load_list()
   my_cnx.close()
   st.dataframe(my_data_rows)
